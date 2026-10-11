@@ -90,3 +90,8 @@ Algorithm background: [Gillespie's 1977 direct-method paper](https://pubs.acs.or
 | `MODEL.md` | Exact RNG and event-order contract |
 
 MIT licensed. Suggestions and reproducible bug reports are welcome.
+
+## Help improve this project
+
+Try the quick start, report a reproducible issue, or pick a small documentation improvement.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for reporting details, development checks and evidence expected for changes.
