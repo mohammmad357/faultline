@@ -1,0 +1,19 @@
+name: Verify both engines
+on: [push, pull_request]
+jobs:
+  parity:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.11', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: mkdir -p build && gcc -std=c11 -O2 -Wall -Wextra -Wpedantic -Werror c/faultline.c -lm -o build/faultline
+      - run: python -m unittest discover -s tests -v
+      - run: gcc -std=c11 -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer c/faultline.c -lm -o build/faultline-sanitize
+      - run: python -m unittest discover -s tests -v
+        env:
+          FAULTLINE_C: build/faultline-sanitize
