@@ -1,0 +1,2 @@
+# Optional; simulation and tests use only the standard library.
+matplotlib>=3.9,<4
