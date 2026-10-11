@@ -17,7 +17,11 @@ Both engines are dependency-free. Plot regeneration optionally requires matplotl
 
 ## Run in a minute
 
+Requires Python 3.11+ and GCC (or a compatible C11 compiler). Start from a fresh clone:
+
 ```sh
+git clone https://github.com/mohammmad357/faultline.git
+cd faultline
 mkdir -p build
 gcc -std=c11 -O2 -Wall -Wextra -Wpedantic -Werror c/faultline.c -lm -o build/faultline
 python python/faultline.py 200 2 3 1 314159 > python.csv
@@ -25,9 +29,11 @@ python python/faultline.py 200 2 3 1 314159 > python.csv
 python -m unittest discover -s tests -v
 ```
 
-PowerShell with Python and GCC installed:
+PowerShell with Python and GCC installed (clone and enter the repository first):
 
 ```powershell
+git clone https://github.com/mohammmad357/faultline.git
+cd faultline
 New-Item -ItemType Directory -Force build | Out-Null
 gcc -std=c11 -O2 -Wall -Wextra -Wpedantic -Werror c/faultline.c -lm -o build/faultline.exe
 python python/faultline.py 200 2 3 1 314159
